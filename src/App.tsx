@@ -1,6 +1,5 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useTheme } from "@/hooks/useTheme";
-import { About } from "@/sections/About";
 import { Contact } from "@/sections/Contact";
 import { Experience } from "@/sections/Experience";
 import { Footer } from "@/sections/Footer";
@@ -21,10 +20,9 @@ function App() {
       <main>
         <Hero />
         <ProofStrip />
-        <About />
+        <Skills />
         <Experience />
         <Work />
-        <Skills />
         <Signals />
         <Contact />
       </main>

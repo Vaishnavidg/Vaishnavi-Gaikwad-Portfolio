@@ -13,9 +13,8 @@ export type SkillCategory = {
 };
 
 /**
- * Ordered by recruiter priority (see portfolio content hierarchy).
- * Only the technologies / capabilities that are actually used belong here —
- * add or remove entries, don't pad the lists.
+ * Ordered by recruiter priority. Only the technologies that are actually used
+ * belong here — add or remove entries, don't pad the lists.
  */
 export const skillCategories: SkillCategory[] = [
   {
@@ -25,39 +24,35 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     number: "02",
-    category: "Full-Stack Application Development",
-    groups: [
-      {
-        label: "Frontend",
-        items: [
-          "React.js",
-          "Next.js",
-          "HTML5",
-          "CSS3",
-          "Tailwind CSS",
-          "Material UI",
-        ],
-      },
-      {
-        label: "Backend",
-        items: [
-          "Node.js",
-          "NestJS",
-          "Spring Boot",
-          "REST APIs",
-          "Web APIs",
-          "Third-party service integration",
-        ],
-      },
+    category: "Frontend",
+    technologies: [
+      "React.js",
+      "Next.js",
+      "HTML5",
+      "CSS3",
+      "Tailwind CSS",
+      "Material UI",
     ],
   },
   {
     number: "03",
+    category: "Backend",
+    technologies: [
+      "Node.js",
+      "NestJS",
+      "Spring Boot",
+      "REST APIs",
+      "Web APIs",
+      "Third-party service integration",
+    ],
+  },
+  {
+    number: "04",
     category: "Databases",
     technologies: ["MongoDB", "SQL", "Relational databases"],
   },
   {
-    number: "04",
+    number: "05",
     category: "AI-Enabled Application Development",
     technologies: [
       "OpenAI API",
@@ -68,13 +63,12 @@ export const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    number: "05",
+    number: "06",
     category: "Cloud & DevOps",
     technologies: ["Git", "GitHub", "GitHub Actions", "CI/CD"],
-  
   },
   {
-    number: "06",
+    number: "07",
     category: "Engineering Practices",
     technologies: [
       "Agile / Scrum",
@@ -88,7 +82,7 @@ export const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    number: "07",
+    number: "08",
     category: "Data Structures & Algorithms",
     technologies: [
       "Arrays",
@@ -103,5 +97,3 @@ export const skillCategories: SkillCategory[] = [
     ],
   },
 ];
-
-

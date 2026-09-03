@@ -1,14 +1,15 @@
 import { useEffect } from "react";
 
-/** Adds `.visible` to every `.reveal` element as it scrolls into view. */
+/**
+ * Adds `.visible` to every `.reveal` element as it scrolls into view.
+ * Keeps watching the DOM so elements added later (route changes, HMR, lazy
+ * content) still get revealed instead of staying stuck at opacity 0.
+ */
 export function useScrollReveal() {
   useEffect(() => {
-    const elements = document.querySelectorAll(".reveal");
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      elements.forEach((element) => element.classList.add("visible"));
-      return;
-    }
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
 
     const observer = new IntersectionObserver(
       (entries) =>
@@ -21,7 +22,23 @@ export function useScrollReveal() {
       { threshold: 0.12 },
     );
 
-    elements.forEach((element) => observer.observe(element));
-    return () => observer.disconnect();
+    const scan = () => {
+      document.querySelectorAll(".reveal:not(.visible)").forEach((element) => {
+        if (reduceMotion) element.classList.add("visible");
+        else observer.observe(element);
+      });
+    };
+
+    scan();
+    const mutationObserver = new MutationObserver(scan);
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
+    return () => {
+      observer.disconnect();
+      mutationObserver.disconnect();
+    };
   }, []);
 }
