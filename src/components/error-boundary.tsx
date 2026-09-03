@@ -3,7 +3,7 @@ import {
   type ComponentType,
   type ErrorInfo,
   type ReactNode,
-} from 'react';
+} from "react";
 
 export interface ErrorFallbackProps {
   error: Error;
@@ -25,7 +25,7 @@ function toError(value: unknown): Error {
   if (value instanceof Error) {
     return value;
   }
-  if (typeof value === 'string') {
+  if (typeof value === "string") {
     return new Error(value);
   }
   try {
@@ -42,8 +42,15 @@ function DefaultFallback({ error, resetError }: ErrorFallbackProps) {
         <h1>Something went wrong</h1>
         <p>This part of the page hit an error. Try reloading it.</p>
         {/* Dev only: messages can carry internals not meant for visitors. */}
-        {import.meta.env.DEV ? <pre>{error.message || String(error)}</pre> : null}
-        <button type="button" onClick={resetError} className="button" style={{ marginTop: 20 }}>
+        {import.meta.env.DEV ? (
+          <pre>{error.message || String(error)}</pre>
+        ) : null}
+        <button
+          type="button"
+          onClick={resetError}
+          className="button"
+          style={{ marginTop: 20 }}
+        >
           Try again
         </button>
       </div>
@@ -63,7 +70,7 @@ export class ErrorBoundary extends Component<
 
   componentDidCatch(error: unknown, info: ErrorInfo): void {
     console.error(
-      'ErrorBoundary caught an error:',
+      "ErrorBoundary caught an error:",
       toError(error),
       info.componentStack,
     );
