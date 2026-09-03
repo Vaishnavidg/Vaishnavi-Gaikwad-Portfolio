@@ -160,7 +160,7 @@ function App() {
     elements.forEach((element) => observer.observe(element));
     return () => observer.disconnect();
   }, []);
-  const downloadResume = () => { window.open('/resume.pdf', '_blank', 'noopener,noreferrer'); };
+  const downloadResume = () => { window.open(`${import.meta.env.BASE_URL}resume.pdf`, '_blank', 'noopener,noreferrer'); };
 
   return (
     <div className="app-shell" id="top">
