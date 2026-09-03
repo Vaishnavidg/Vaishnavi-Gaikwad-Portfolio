@@ -5,6 +5,7 @@ import { defineConfig } from 'vite';
 const port = Number(process.env.PORT) || 3000;
 
 export default defineConfig({
+  base: '/Vaishnavi-Gaikwad-Portfolio/',
   plugins: [react()],
   resolve: {
     alias: {
