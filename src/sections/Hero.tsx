@@ -14,7 +14,7 @@ import { scrollToSection } from "@/lib/scroll";
 
 export function Hero() {
   return (
-    <section className="hero" aria-labelledby="hero-title">
+    <section id="about" className="hero" aria-labelledby="hero-title">
       <div className="container hero-grid">
         <div className="hero-lead">
           <div className="eyebrow">01 / introduction</div>

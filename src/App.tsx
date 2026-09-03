@@ -4,12 +4,11 @@ import { About } from "@/sections/About";
 import { Contact } from "@/sections/Contact";
 import { Experience } from "@/sections/Experience";
 import { Footer } from "@/sections/Footer";
-import { Fundamentals } from "@/sections/Fundamentals";
 import { Hero } from "@/sections/Hero";
 import { Navbar } from "@/sections/Navbar";
 import { ProofStrip } from "@/sections/ProofStrip";
 import { Signals } from "@/sections/Signals";
-import { Toolkit } from "@/sections/Toolkit";
+import { Skills } from "@/sections/Skills";
 import { Work } from "@/sections/Work";
 
 function App() {
@@ -25,8 +24,7 @@ function App() {
         <About />
         <Experience />
         <Work />
-        <Toolkit />
-        <Fundamentals />
+        <Skills />
         <Signals />
         <Contact />
       </main>

@@ -6,7 +6,7 @@ export function Signals() {
     <section aria-labelledby="achievements-title">
       <div className="container">
         <SectionHeading
-          eyebrow="07 / signals"
+          eyebrow="06 / signals"
           title="What I bring to the room."
           note="Not a list of inflated metrics. A few true signals."
         />

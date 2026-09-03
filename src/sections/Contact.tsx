@@ -9,7 +9,7 @@ export function Contact() {
     <section id="contact" className="contact" aria-labelledby="contact-title">
       <div className="container contact-grid">
         <div className="contact-copy reveal">
-          <div className="eyebrow">08 / next move</div>
+          <div className="eyebrow">07 / next move</div>
           <h2 id="contact-title" className="section-title">
             Have a good problem?
           </h2>

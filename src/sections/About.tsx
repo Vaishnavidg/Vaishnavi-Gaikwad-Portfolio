@@ -20,7 +20,7 @@ const principles = [
 
 export function About() {
   return (
-    <section id="about" aria-labelledby="about-title">
+    <section aria-labelledby="about-title">
       <div className="container">
         <SectionHeading
           eyebrow="02 / context"

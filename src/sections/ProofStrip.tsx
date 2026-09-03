@@ -1,11 +1,15 @@
 const stats = [
-  { value: "3+", label: "years building", testid: "stat-experience" },
-  { value: "100+", label: "DSA problems", testid: "stat-dsa" },
-  { value: "Full Stack", label: "frontend + backend", testid: "stat-stack" },
+  { value: "3+", label: "Years of experience", testid: "stat-experience" },
+  { value: "150+", label: "DSA problems solved", testid: "stat-dsa" },
   {
-    value: "Production",
-    label: "real-world applications",
-    testid: "stat-production",
+    value: "10+",
+    label: "Technologies across the stack",
+    testid: "stat-stack",
+  },
+  {
+    value: "3",
+    label: "Domains — web, blockchain, AI",
+    testid: "stat-domains",
   },
 ];
 
