@@ -47,7 +47,7 @@ function TerminalVisual() {
         <div className="code-line"><span className="line-no">05</span><span className="code">&nbsp;&nbsp;&nbsp;&nbsp;<span className="value">'product'</span>,</span></div>
         <div className="code-line"><span className="line-no">06</span><span className="code">&nbsp;&nbsp;&nbsp;&nbsp;<span className="value">'problem-solving'</span>,</span></div>
         <div className="code-line"><span className="line-no">07</span><span className="code">&nbsp;&nbsp;],</span></div>
-        <div className="code-line"><span className="line-no">08</span><span className="code">&nbsp;&nbsp;experience: <span className="value">'2+ years'</span>,</span></div>
+        <div className="code-line"><span className="line-no">08</span><span className="code">&nbsp;&nbsp;experience: <span className="value">'3+ years'</span>,</span></div>
         <div className="code-line"><span className="line-no">09</span><span className="code">&nbsp;&nbsp;approach: <span className="fn">ship</span>(<span className="value">'with intent'</span>),</span></div>
         <div className="code-line"><span className="line-no">10</span><span className="code">{'}'}<span className="terminal-cursor" aria-hidden="true" /></span></div>
         <div className="code-line" style={{ marginTop: 20 }}><span className="line-no">11</span><span className="code comment">// make it useful. then make it clear.</span></div>
@@ -171,7 +171,7 @@ function App() {
             <div className="hero-copy reveal">
               <div className="eyebrow">01 / introduction</div>
               <h1 id="hero-title">Building scalable products,<br /><em>not just writing code.</em></h1>
-              <p>Full Stack Developer with 2+ years of experience building production-ready web applications, APIs and user-focused digital products with React, Next.js, Node.js, TypeScript, and MongoDB.</p>
+              <p>Full Stack Developer with 3+ years of experience building production-ready web applications, APIs and user-focused digital products with React, Next.js, Node.js, TypeScript, and MongoDB.</p>
               <div className="hero-ctas"><button className="button" onClick={() => scrollToSection('#work')} data-testid="button-explore-work">Explore my work <ArrowDownRight size={15} /></button><a className="text-link" href={projectLinks.email} data-testid="link-hero-email">Let's talk <ArrowUpRight size={14} /></a></div>
               <div className="availability"><span className="pulse" />Open to the right problem</div>
             </div>
@@ -180,7 +180,7 @@ function App() {
         </section>
 
         <div className="proof-strip"><div className="container proof-grid">
-          <div className="proof-item reveal" data-testid="stat-experience"><span className="proof-value">2+</span><span className="proof-label">years building</span></div>
+          <div className="proof-item reveal" data-testid="stat-experience"><span className="proof-value">3+</span><span className="proof-label">years building</span></div>
           <div className="proof-item reveal" data-testid="stat-dsa"><span className="proof-value">100+</span><span className="proof-label">DSA problems</span></div>
           <div className="proof-item reveal" data-testid="stat-stack"><span className="proof-value">Full Stack</span><span className="proof-label">frontend + backend</span></div>
           <div className="proof-item reveal" data-testid="stat-production"><span className="proof-value">Production</span><span className="proof-label">real-world applications</span></div>

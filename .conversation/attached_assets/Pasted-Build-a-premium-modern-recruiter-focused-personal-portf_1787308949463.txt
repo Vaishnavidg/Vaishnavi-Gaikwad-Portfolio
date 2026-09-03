@@ -1,4 +1,4 @@
-Build a premium, modern, recruiter-focused personal portfolio website for **Vaishnavi Gaikwad**, a Full Stack Web Developer with 2+ years of professional experience.
+Build a premium, modern, recruiter-focused personal portfolio website for **Vaishnavi Gaikwad**, a Full Stack Web Developer with 3+ years of professional experience.
 
 The goal is to create a portfolio that makes me stand out from typical developer portfolios and strongly communicates my ability to build real-world software.
 
@@ -138,7 +138,7 @@ Main heading:
 
 Supporting text:
 
-**Full Stack Developer with 2+ years of experience building production-ready web applications, APIs and user-focused digital products.**
+**Full Stack Developer with 3+ years of experience building production-ready web applications, APIs and user-focused digital products.**
 
 Mention my main technologies naturally:
 
@@ -203,7 +203,7 @@ Immediately below the hero create a compact "proof" section.
 
 Display:
 
-**2+**
+**3+**
 Years Experience
 
 **100+**
@@ -596,7 +596,7 @@ Create a visually distinctive achievements section.
 
 Include:
 
-* 2+ years professional experience
+* 3+ years professional experience
 * 100+ DSA problems solved
 * Full Stack development experience
 * Production API development

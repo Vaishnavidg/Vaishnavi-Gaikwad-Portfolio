@@ -1,45 +1,37 @@
-# [Project name]
+# Vaishnavi Gaikwad — Portfolio
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A single-page personal portfolio for Vaishnavi Gaikwad (Full Stack Developer), showcasing
+selected work, experience, skills, and editable case studies.
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
-- `pnpm run typecheck` — full typecheck across all packages
+- `pnpm --filter @workspace/vaishnavi-portfolio run dev` — dev server (port 3000, or `$PORT`)
+- `pnpm --filter @workspace/vaishnavi-portfolio run build` — production build to `dist/public`
+- `pnpm --filter @workspace/vaishnavi-portfolio run serve` — preview the production build
+- `pnpm run typecheck` — typecheck all packages
 - `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
 
 ## Stack
 
-- pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- pnpm workspace (single package: `artifacts/vaishnavi-portfolio`)
+- React 19 + TypeScript, built with Vite 7
+- Icons: `lucide-react`
+- Styling: hand-written CSS in `src/index.css` with a CSS custom-property theme
+  (dark by default, `.light` class for light mode). No Tailwind, no UI framework.
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
-
-## Architecture decisions
-
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
-
-## Product
-
-_Describe the high-level user-facing capabilities of this app once they exist._
-
-## User preferences
-
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- `src/App.tsx` — the entire page; each section is a local component
+- `src/data/*.ts` — all editable content (projects, experience, skills, achievements).
+  Edit these, not the JSX.
+- `src/index.css` — design tokens + every style rule
+- `src/components/error-boundary.tsx` — top-level error boundary
+- `index.html` — static `<title>` and social meta
+- `public/` — `favicon.svg`, `robots.txt`. Add `resume.pdf` and `profile.jpg` here
+  (referenced by the resume button and About section).
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
-
-## Pointers
-
-- See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details
+- `projectLinks` in `src/data/projects.ts` still has placeholder LinkedIn / email /
+  LeetCode URLs — update before publishing.
+- `public/resume.pdf` and `public/profile.jpg` are referenced but not yet added.
