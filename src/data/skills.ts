@@ -1,58 +1,99 @@
 export type SkillGroup = {
-  category: string;
-  skills: { name: string; description: string }[];
+  label: string;
+  items: string[];
 };
 
-export const skillGroups: SkillGroup[] = [
+export type SkillCategory = {
+  number: string;
+  category: string;
+  /** Flat list — use this OR `groups`, not both. */
+  technologies?: string[];
+  /** Labelled sub-lists, e.g. Frontend / Backend. */
+  groups?: SkillGroup[];
+};
+
+/**
+ * Ordered by recruiter priority. Only the technologies that are actually used
+ * belong here — add or remove entries, don't pad the lists.
+ */
+export const skillCategories: SkillCategory[] = [
   {
-    category: 'Frontend',
-    skills: [
-      { name: 'React.js', description: 'Used to build reusable, responsive production interfaces.' },
-      { name: 'Next.js', description: 'Used to build modern application experiences and routes.' },
-      { name: 'TypeScript', description: 'Used to make application behavior easier to reason about.' },
-      { name: 'JavaScript', description: 'Used across interactive product experiences and application logic.' },
-      { name: 'Tailwind CSS', description: 'Used to create consistent responsive UI systems.' },
-      { name: 'Material UI', description: 'Used for accessible, reusable interface patterns.' },
-      { name: 'Vite', description: 'Used for fast modern frontend development.' },
-      { name: 'shadcn/ui', description: 'Used to compose focused, reusable UI primitives.' },
+    number: "01",
+    category: "Languages",
+    technologies: ["Java", "JavaScript", "TypeScript", "Solidity"],
+  },
+  {
+    number: "02",
+    category: "Frontend",
+    technologies: [
+      "React.js",
+      "Next.js",
+      "HTML5",
+      "CSS3",
+      "Tailwind CSS",
+      "Material UI",
     ],
   },
   {
-    category: 'Backend',
-    skills: [
-      { name: 'Node.js', description: 'Used for backend services, APIs, and application workflows.' },
-      { name: 'NestJS', description: 'Used to structure maintainable backend modules.' },
-      { name: 'Express.js', description: 'Used to build RESTful application services.' },
-      { name: 'REST APIs', description: 'Used to support production application workflows.' },
+    number: "03",
+    category: "Backend",
+    technologies: [
+      "Node.js",
+      "NestJS",
+      "Spring Boot",
+      "REST APIs",
+      "Web APIs",
+      "Third-party service integration",
     ],
   },
   {
-    category: 'Databases',
-    skills: [
-      { name: 'MongoDB', description: 'Used to design and maintain schemas for product features.' },
-      { name: 'SQL', description: 'Used to work with structured application data.' },
-      { name: 'PostgreSQL', description: 'Used for relational data and backend workflows.' },
+    number: "04",
+    category: "Databases",
+    technologies: ["MongoDB", "SQL", "Relational databases"],
+  },
+  {
+    number: "05",
+    category: "AI-Enabled Application Development",
+    technologies: [
+      "OpenAI API",
+      "Prompt Engineering",
+      "AI-assisted development",
+      "Cursor AI",
+      "Claude",
     ],
   },
   {
-    category: 'Blockchain',
-    skills: [
-      { name: 'Solidity', description: 'Used to work with smart contract systems.' },
-      { name: 'Hardhat', description: 'Used in smart contract development workflows.' },
-      { name: 'Foundry', description: 'Used to explore and develop Solidity systems.' },
-      { name: 'Web3.js', description: 'Used to connect product experiences with blockchain systems.' },
-      { name: 'Wagmi', description: 'Used for wallet-aware React integrations.' },
-      { name: 'Viem', description: 'Used for typed Ethereum interactions.' },
-      { name: 'ERC-3643', description: 'Used to explore tokenized asset and identity standards.' },
+    number: "06",
+    category: "Cloud & DevOps",
+    technologies: ["Git", "GitHub", "GitHub Actions", "CI/CD"],
+  },
+  {
+    number: "07",
+    category: "Engineering Practices",
+    technologies: [
+      "Agile / Scrum",
+      "Requirement analysis",
+      "Design reviews",
+      "Peer code reviews",
+      "Bug tracking",
+      "Change tracking",
+      "Cross-functional collaboration",
+      "Stakeholder collaboration",
     ],
   },
   {
-    category: 'Tools',
-    skills: [
-      { name: 'Git', description: 'Used for version control and collaborative development.' },
-      { name: 'GitHub', description: 'Used to share code and track project work.' },
-      { name: 'Postman', description: 'Used to inspect and validate API behavior.' },
-      { name: 'VS Code', description: 'Used as a focused development environment.' },
+    number: "08",
+    category: "Data Structures & Algorithms",
+    technologies: [
+      "Arrays",
+      "Strings",
+      "Hashing",
+      "Sorting",
+      "Binary Search",
+      "Two Pointers",
+      "Recursion",
+      "Algorithms",
+      "OOP",
     ],
   },
 ];

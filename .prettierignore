@@ -1,0 +1,5 @@
+# index.css is hand-maintained one-rule-per-line; keep Prettier off it.
+src/index.css
+
+dist
+pnpm-lock.yaml
