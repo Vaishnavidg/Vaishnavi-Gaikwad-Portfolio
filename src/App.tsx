@@ -6,7 +6,7 @@ import { Footer } from "@/sections/Footer";
 import { Hero } from "@/sections/Hero";
 import { Navbar } from "@/sections/Navbar";
 import { ProofStrip } from "@/sections/ProofStrip";
-import { Signals } from "@/sections/Signals";
+import { Achievements } from "./sections/Achievements";
 import { Skills } from "@/sections/Skills";
 import { Work } from "@/sections/Work";
 
@@ -23,7 +23,7 @@ function App() {
         <Skills />
         <Experience />
         <Work />
-        <Signals />
+        <Achievements />
         <Contact />
       </main>
       <Footer />

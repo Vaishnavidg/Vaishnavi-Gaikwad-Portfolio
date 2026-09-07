@@ -1,10 +1,4 @@
-import {
-  ArrowUpRight,
-  Facebook,
-  Github,
-  Instagram,
-  Linkedin,
-} from "lucide-react";
+import { ArrowUpRight, Github, Instagram, Linkedin } from "lucide-react";
 import { projectLinks } from "@/data/projects";
 import { HeroPortrait } from "@/components/HeroPortrait";
 import { LeetCodeIcon } from "@/components/LeetCodeIcon";
@@ -27,7 +21,7 @@ export function Hero() {
               </span>
             </h1>
             <p className="about-lede">
-              I’m Vaishnavi Gaikwad — 3+ years shipping production web apps and
+              I’m Vaishnavi Gaikwad — 3+ years shipping production Web Apps and
               APIs, with hands-on blockchain / Web3 work and a growing focus on
               AI-powered products. I start with the problem, not the stack.
             </p>
@@ -67,15 +61,6 @@ export function Hero() {
                 aria-label="Instagram"
               >
                 <Instagram size={24} />
-              </a>
-              <a
-                className="nav-social"
-                href={projectLinks.facebook}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Facebook"
-              >
-                <Facebook size={24} />
               </a>
             </div>
             <div className="hero-ctas">

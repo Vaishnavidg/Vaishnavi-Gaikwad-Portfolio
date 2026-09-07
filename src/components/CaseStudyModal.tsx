@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { ExternalLink, X } from "lucide-react";
+import { ExternalLink, Github, X } from "lucide-react";
 
 import type { Project } from "@/data/projects";
 
@@ -79,7 +79,7 @@ export function CaseStudyModal({
             </span>
           ))}
         </div>
-        {project.href !== "#" && (
+        {project.href.startsWith("http") ? (
           <a
             className="text-link"
             href={project.href}
@@ -90,6 +90,19 @@ export function CaseStudyModal({
           >
             Open link <ExternalLink size={13} />
           </a>
+        ) : (
+          project.github && (
+            <a
+              className="text-link"
+              href={project.github}
+              target="_blank"
+              rel="noreferrer"
+              style={{ marginTop: 24 }}
+              data-testid={`link-project-${project.id}`}
+            >
+              View on GitHub <Github size={13} />
+            </a>
+          )
         )}
       </article>
     </div>
