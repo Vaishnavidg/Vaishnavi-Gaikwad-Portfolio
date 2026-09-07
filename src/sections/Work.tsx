@@ -1,5 +1,5 @@
 import { Fragment, useState } from "react";
-import { ArrowUpRight, ChevronRight } from "lucide-react";
+import { ArrowUpRight, ChevronDown, ChevronRight, Github } from "lucide-react";
 
 import { CaseStudyModal } from "@/components/CaseStudyModal";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -13,8 +13,13 @@ const architectureFlow = [
   { label: "Data", note: "useful state" },
 ];
 
+const VISIBLE_COUNT = 4;
+
 export function Work() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [showAll, setShowAll] = useState(false);
+  const visibleProjects = showAll ? projects : projects.slice(0, VISIBLE_COUNT);
+  const hasMore = projects.length > VISIBLE_COUNT;
 
   return (
     <section
@@ -29,72 +34,104 @@ export function Work() {
           note="A selection of work and working directions. Open a card for the deeper cut."
         />
         <div className="project-grid">
-          {projects.map((project, index) => (
-            <article
-              className="project-card reveal"
-              key={project.id}
-              data-testid={`card-project-${project.id}`}
-            >
-              <div>
-                <span className="project-index">
-                  {project.index} / {index === 0 ? "case study" : "direction"}
-                </span>
-                <div className="eyebrow" style={{ marginTop: 25 }}>
-                  {project.eyebrow}
-                </div>
-                <h3>{project.title}</h3>
-                <p>{project.summary}</p>
-              </div>
-              <div className="project-meta">
-                <div className="tag-list">
-                  {project.tags.map((tag) => (
-                    <span className="tag" key={tag}>
-                      {tag}
+          {visibleProjects.map((project, index) => {
+            const hasLiveLink = project.href.startsWith("http");
+            return (
+              <article
+                className={
+                  index === 0
+                    ? "project-card featured reveal"
+                    : "project-card reveal"
+                }
+                key={project.id}
+                data-testid={`card-project-${project.id}`}
+              >
+                <div className="project-card-top">
+                  <div className="project-card-heading">
+                    <span className="eyebrow">
+                      {project.index} / {project.eyebrow}
                     </span>
-                  ))}
-                </div>
-                <button
-                  className="arrow-link"
-                  onClick={() => setSelectedProject(project)}
-                  aria-label={`Open ${project.title} case study`}
-                  data-testid={`button-open-project-${project.id}`}
-                >
-                  <ChevronRight size={20} />
-                </button>
-              </div>
-            </article>
-          ))}
-        </div>
-        <div
-          className="architecture reveal"
-          aria-labelledby="architecture-title"
-        >
-          <div className="arch-top">
-            <div>
-              <div className="eyebrow">Architecture / a way of thinking</div>
-              <h3 id="architecture-title">Keep the user journey in focus.</h3>
-            </div>
-            <p>
-              Web3 architecture visualization — replace the labels with the
-              approved implementation details.
-            </p>
-          </div>
-          <div className="arch-flow" aria-label="Web3 architecture flow">
-            {architectureFlow.map((node, index) => (
-              <Fragment key={node.label}>
-                {index > 0 && (
-                  <div className="arch-arrow">
-                    <ArrowUpRight size={17} />
+                    <h3>{project.title}</h3>
+                    <p>{project.summary}</p>
                   </div>
-                )}
-                <div className="arch-node">
-                  <strong>{node.label}</strong>
-                  <small>{node.note}</small>
+                  <div className="project-links">
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`Open ${project.title} repository on GitHub`}
+                        data-testid={`link-github-${project.id}`}
+                      >
+                        <Github size={16} />
+                      </a>
+                    )}
+                    {hasLiveLink && (
+                      <a
+                        href={project.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`Open ${project.title} live site`}
+                        data-testid={`link-live-${project.id}`}
+                      >
+                        <ArrowUpRight size={16} />
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </Fragment>
-            ))}
-          </div>
+
+                <div className="project-highlights">
+                  <span className="project-highlights-label">Key features</span>
+                  <ul className="project-feature-list">
+                    {project.features.slice(0, 4).map((feature) => (
+                      <li key={feature}>{feature}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <p className="project-role">
+                  <strong>Role — </strong>
+                  {project.role}
+                </p>
+
+                <div className="project-meta">
+                  <div className="tag-list">
+                    {project.tags.map((tag) => (
+                      <span className="tag" key={tag}>
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <button
+                    className="arrow-link"
+                    onClick={() => setSelectedProject(project)}
+                    aria-label={`Open ${project.title} case study`}
+                    data-testid={`button-open-project-${project.id}`}
+                  >
+                    <ChevronRight size={18} />
+                  </button>
+                </div>
+              </article>
+            );
+          })}
         </div>
+
+        {hasMore && (
+          <button
+            type="button"
+            className="show-more-btn"
+            onClick={() => setShowAll((prev) => !prev)}
+            aria-expanded={showAll}
+            data-testid="button-toggle-projects"
+          >
+            {showAll ? "Show less" : `Show more (${projects.length - VISIBLE_COUNT})`}
+            <ChevronDown
+              size={14}
+              className={showAll ? "show-more-icon open" : "show-more-icon"}
+              aria-hidden="true"
+            />
+          </button>
+        )}
       </div>
       {selectedProject && (
         <CaseStudyModal

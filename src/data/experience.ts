@@ -19,7 +19,7 @@ export const experience: Experience[] = [
     location: "Pune, Maharashtra",
     logo: impactilityLogo,
     highlights: [
-      "Design, build, deploy, and improve full-stack features for ServCare, a citizen-facing sustainability platform — owning delivery end-to-end across a Java/Node.js back-end, MongoDB and SQL data layer, and React.js front-end.",
+      "Design, build, deploy, and improve full-stack features for ServCare, a citizen-facing sustainability platform — owning delivery end-to-end across a Node.js back-end, MongoDB  and React.js front-end.",
       "Translate business requirements into technical designs and implementation plans, building RESTful API endpoints and integrating backend services while partnering directly with product stakeholders to identify pain points and define solutions.",
       "Improved application performance and reliability by redesigning MongoDB schema and indexing strategy, reducing average query response time by ~40% on high-traffic endpoints.",
       "Perform peer code reviews each sprint and track bugs/changes through the team's issue-management workflow, giving feedback on style, correctness, testability, and efficiency to uphold engineering standards.",

@@ -1,6 +1,30 @@
 import { useState, type FormEvent } from "react";
 import { ArrowUpRight, Check } from "lucide-react";
 
+const CONTACT_EMAIL = "vaishnavig3001@gmail.com";
+
+// Set VITE_SHEET_WEBHOOK_URL (see .env.example / docs/google-sheet-webhook.md)
+// to also log every submission as a row in a Google Sheet. Optional — the
+// mailto flow below works with or without it.
+const SHEET_WEBHOOK_URL = import.meta.env.VITE_SHEET_WEBHOOK_URL as
+  | string
+  | undefined;
+
+function logToSheet(entry: { name: string; email: string; message: string }) {
+  if (!SHEET_WEBHOOK_URL) return;
+  // Apps Script web apps don't return CORS headers for a readable response,
+  // so this is a fire-and-forget "no-cors" POST — we can't confirm delivery,
+  // only that it was attempted, which is fine since mailto is the fallback.
+  fetch(SHEET_WEBHOOK_URL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify(entry),
+  }).catch(() => {
+    // Silently ignore — the message still goes out via mailto regardless.
+  });
+}
+
 export function ContactForm() {
   const [values, setValues] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -21,7 +45,17 @@ export function ContactForm() {
     if (values.message.trim().length < 12)
       next.message = "A little more context helps.";
     setErrors(next);
-    if (!Object.keys(next).length) setSubmitted(true);
+    if (!Object.keys(next).length) {
+      logToSheet(values);
+
+      const subject = `Portfolio inquiry from ${values.name}`;
+      const body = `${values.message}\n\n— ${values.name} (${values.email})`;
+      const mailtoHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+        subject
+      )}&body=${encodeURIComponent(body)}`;
+      setSubmitted(true);
+      window.location.href = mailtoHref;
+    }
   };
 
   return (
@@ -82,7 +116,8 @@ export function ContactForm() {
           data-testid="status-contact-success"
         >
           <Check size={14} style={{ verticalAlign: -2, marginRight: 6 }} />
-          Thanks. Your message is ready to send.
+          Thanks — your email app should now be open with the message ready
+          to send to {CONTACT_EMAIL}.
         </div>
       )}
     </form>

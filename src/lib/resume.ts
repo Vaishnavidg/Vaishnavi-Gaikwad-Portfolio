@@ -1,7 +1,5 @@
+import resumeFile from "@/assets/Vaishnavi_Gaikwad_Resume_Main.pdf";
+
 export function openResume() {
-  window.open(
-    `${import.meta.env.BASE_URL}resume.pdf`,
-    "_blank",
-    "noopener,noreferrer",
-  );
+  window.open(resumeFile, "_blank", "noopener,noreferrer");
 }
